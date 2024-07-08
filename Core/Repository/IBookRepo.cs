@@ -8,7 +8,7 @@ namespace BookCatalogManagementSystemAPI.Core.Repository
         
         public Task Create(Book book);
         public Task<List<Book>> Get();
-        public Task<IActionResult> Update();
+        public Task UpdateBook(Book book);
         public Task Delete(Guid id);
     }
 }

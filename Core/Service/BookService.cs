@@ -1,4 +1,5 @@
-﻿using BookCatalogManagementSystemAPI.Core.Repository;
+﻿using BookCatalogManagementSystemAPI.Core.Domain;
+using BookCatalogManagementSystemAPI.Core.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookCatalogManagementSystemAPI.Core.Service
@@ -12,29 +13,26 @@ namespace BookCatalogManagementSystemAPI.Core.Service
             this.repo = repo;
         }
 
-        public Task<IActionResult> Create()
+        public Task Create(Book book)
         {
-            throw new NotImplementedException();
+          return  repo.Create(book);
         }
 
-        public Task<IActionResult> Delete()
+        public Task Delete(Guid id)
         {
-            throw new NotImplementedException();
+            return repo.Delete(id);
         }
 
-        public Task<IActionResult> Get()
+        public Task<List<Book>> Get()
         {
-            throw new NotImplementedException();
+            return repo.Get();
         }
 
-        public Task<IActionResult> Update()
-        {
-            return repo.Update();
-        }
+        
 
-        public Task<IActionResult> Update(Guid id)
+        public Task UpdateBook(Book book)
         {
-            throw new NotImplementedException();
+            return repo.UpdateBook(book);
         }
     }
 }

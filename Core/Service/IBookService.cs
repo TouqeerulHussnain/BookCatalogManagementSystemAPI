@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookCatalogManagementSystemAPI.Core.Domain;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookCatalogManagementSystemAPI.Core.Service
 {
     public interface IBookService
     {
-        public Task<IActionResult> Get();
-        public Task<IActionResult> Update(Guid id);
-        public Task<IActionResult> Delete();
-        public Task<IActionResult> Create();
+        public Task Create(Book book);
+        public Task<List<Book>> Get();
+        public Task UpdateBook(Book book);
+        public Task Delete(Guid id);
     }
 }

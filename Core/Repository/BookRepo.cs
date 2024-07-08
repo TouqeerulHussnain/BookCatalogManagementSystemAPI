@@ -1,4 +1,5 @@
 ﻿using BookCatalogManagementSystemAPI.Core.Domain;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,9 +40,24 @@ namespace BookCatalogManagementSystemAPI.Core.Repository
             return books;
         }
 
-        public Task<IActionResult> Update()
+        public async Task UpdateBook(Book book)
         {
-            throw new NotImplementedException();
+           var updatedBook = context.Books.Where(element=>element.Id == book.Id).FirstOrDefault();
+            if (updatedBook != null) { 
+                updatedBook.Id = book.Id;
+                updatedBook.Title = book.Title;
+                updatedBook.AuthorName = book.AuthorName;
+                updatedBook.PublicationYear = book.PublicationYear;
+                updatedBook.Genre = book.Genre;
+                updatedBook.ISBN = book.ISBN;
+                updatedBook.Tags = book.Tags;
+                updatedBook.Chapters = book.Chapters;
+                updatedBook.Pages = book.Pages;
+
+                context.Books.Update(updatedBook);
+            }
+             await context.SaveChangesAsync();
+            
         }
     }
 }
