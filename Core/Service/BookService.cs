@@ -11,19 +11,20 @@ namespace BookCatalogManagementSystemAPI.Core.Service
         {
             this.repo = repo;
         }
+
         public Task<IActionResult> Create()
         {
-            return repo.Create();
+            throw new NotImplementedException();
         }
 
         public Task<IActionResult> Delete()
         {
-            return repo.Delete();
+            throw new NotImplementedException();
         }
 
         public Task<IActionResult> Get()
         {
-            return repo.Get();
+            throw new NotImplementedException();
         }
 
         public Task<IActionResult> Update()
